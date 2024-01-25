@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inequality</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>INEQUALITIES</h1>
+    <label for="dropdown">Select a type of inequality:</label>
+        <select id="dropdown" onchange="showOption()">
+            <option value="option0">Select</option>
+            <option value="option1">Both sides with modulus</option>
+            <option value="option2">One side with modulus</option>
+            <option value="option3">Without modulus</option>
+        </select>
+
+        <div id="dropdown1" style="display:none;">
+            <table>
+                <thead>
+                    <tr><h2>SOLUTION</h2></tr>
+                </thead>
+                <tbody>   
+                    <tr>
+                        <th>Example</th>
+                        <td>| x - 3 | < | 2x + 5 | </td>
+                    </tr>
+                    <tr>
+                        <th>Technique/Formula</th>
+                        <td>Squaring Both Sides</td>
+                    </tr>
+                </tbody> 
+            </table>
+            <button onclick="window.location.href='example.html'">Example</button>
+        </div>
+
+        <div id="radiooption2" style="display:none;">
+            <label>Choose an inequality sign:</label>
+            <input type="radio" id="sign1" name="sign" value="sign1" onclick="updateTable()">
+            <label for="sign1"> < </label>
+        
+            <input type="radio" id="sign2" name="sign" value="sign2" onclick="updateTable()">
+            <label for="sign2"> > </label>
+
+            <input type="radio" id="sign3" name="sign" value="sign3" onclick="updateTable()">
+            <label for="sign3"> ≤ </label>
+
+            <input type="radio" id="sign4" name="sign" value="sign4" onclick="updateTable()">
+            <label for="sign4"> ≥ </label>
+
+            <table>
+                <thead>
+                    <tr><h2>SOLUTION</h2></tr>
+                </thead>
+                <tbody>   
+                    <tr>
+                        <th>Example</th>
+                        <td id="example1"></td>
+                    </tr>
+                    <tr>
+                        <th>Technique/Formula</th>
+                        <td id="tandf1"></td>
+                    </tr>
+                </tbody> 
+            </table>
+
+            <button onclick="redirect()">Example</button>
+
+        </div>  
+
+        <div id="radiooption3" style="display:none;">
+            <label>Choose the type of inequality:</label>
+            <input type="radio" id="linear" name="nomodulus" value="linear" onclick="updateTable2()">
+            <label for="linear">Linear</label>
+        
+            <input type="radio" id="nonlinear" name="nomodulus" value="nonlinear" onclick="updateTable2()">
+            <label for="nonlinear">Non-Linear</label>
+
+            <input type="radio" id="combine" name="nomodulus" value="combine" onclick="updateTable2()">
+            <label for="combine">Combination</label>
+
+            <table>
+                <thead>
+                    <tr><h2>SOLUTION</h2></tr>
+                </thead>
+                <tbody>   
+                    <tr>
+                        <th>Example</th>
+                        <td id="example2"></td>
+                    </tr>
+                    <tr>
+                        <th>Technique/Formula</th>
+                        <td id="tandf2"></td>
+                    </tr>
+                </tbody> 
+            </table>
+        </div>
+        
+    <script src="script.js"></script>
+</body>
+</html>
