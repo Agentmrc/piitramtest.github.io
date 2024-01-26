@@ -49,15 +49,17 @@
 
 <script>
     var contentArray = [
-        ['2. x > -a and x < a','<sup>1</sup>/<sub>x - 2</sub> > -3 and <sup>1</sup>/<sub>x - 2</sub> < 3'],
-        ['3. Zerorise RHS and simplify the inequality', '3x<sup>2</sup> + 26x + 16 > 0'],
-        ['4. Factorise completely', '(3x + 2)(x + 8) > 0'],
-        ['5. Find all critical values', 'x = -<sup>2</sup>/<sub>3</sub> or x = -8'],
+        ['2. x > -a and x < a','<sup>1</sup>/<sub>x - 2</sub> > -3 <br><br> and <br><br> <sup>1</sup>/<sub>x - 2</sub> < 3'],
+        ['3. Zerorise RHS and simplify the inequality', '<sup>1</sup>/<sub>x - 2</sub> + 3 > 0 <br><br> and <br><br> <sup>1</sup>/<sub>x - 2</sub> - 3 < 0'],
+        ['4. Factorise completely', '<sup>3x - 5</sup>/<sub>x - 2</sub> > 0 <br><br> and <br><br> <sup>7 - 3x</sup>/<sub>x - 2</sub> < 0'],
+        ['5. Find all critical values', 'x = <sup>5</sup>/<sub>3</sub> ; x = 2 <br><br> and <br><br> x = <sup>7</sup>/<sub>3</sub> ; x = 2'],
         ['6. Table of sign',''] ,
-        ['7. Write down the solution', '(-∞ , -8) U (-<sup>2</sup>/<sub>3</sub> , ∞)']
+        ['7. Write down the solution', '(-∞ , <sup>5</sup>/<sub>3</sub>) U (2 , ∞) and (-∞ , 2) U (<sup>7</sup>/<sub>3</sub> , ∞)'],
+        ['8. Use number lines to merge the answers',''],
+        ['9. Write down the final solution','(-∞ , <sup>5</sup>/<sub>3</sub>) U (<sup>7</sup>/<sub>3</sub> , ∞)']
     ];
     var Index = 0;
-    var maxRows = 7; 
+    var maxRows = 9; 
 
     // Enable the button initially
     document.getElementById('nextstep').disabled = false;
@@ -71,6 +73,8 @@
 
         // Add an image to the second column of a specific row (e.g., third row)
         if (table.rows.length === 6) {
+            newRow.insertCell(1).innerHTML = '<img src="example.jpg" alt="Example Image">';
+        }else if (table.rows.length === 8) {
             newRow.insertCell(1).innerHTML = '<img src="example.jpg" alt="Example Image">';
         } else {
             newRow.insertCell(1).innerHTML = contentArray[Index][1];
