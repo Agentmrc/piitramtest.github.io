@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Content Example</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        #column1 {
+            width: 50%; 
+        }
+
+        #column2 {
+            width: 50%; 
+        }
+    </style>
+</head>
+<body>
+
+<h2>Solve One Side Modulus (<) Inequality</h2>
+<button id="nextstep" onclick="addTableRow()">Next Step</button>
+
+<table id="contentTable">
+    <thead>
+        <tr>
+            <th>Question</th>
+            <th>| <sup>1</sup>/<sub>x - 2</sub> | < 3</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Initial row -->
+        <tr>
+            <td id="column1">1. Apply Formula | x | ≤ a ↔ -a ≤ x ≤ a</td>
+            <td id="column2">-3 ≤ <sup>1</sup>/<sub>x - 2</sub> ≤ 3</sup></td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    var contentArray = [
+        ['2. x > -a and x < a','<sup>1</sup>/<sub>x - 2</sub> ≥ -3 <br><br> and <br><br> <sup>1</sup>/<sub>x - 2</sub> ≤ 3'],
+        ['3. Zerorise RHS and simplify the inequality', '<sup>1</sup>/<sub>x - 2</sub> + 3 ≥ 0 <br><br> and <br><br> <sup>1</sup>/<sub>x - 2</sub> - 3 ≤ 0'],
+        ['4. Factorise completely', '<sup>3x - 5</sup>/<sub>x - 2</sub> ≥ 0 <br><br> and <br><br> <sup>7 - 3x</sup>/<sub>x - 2</sub> ≤ 0'],
+        ['5. Find all critical values', 'x = <sup>5</sup>/<sub>3</sub> ; x = 2 <br><br> and <br><br> x = <sup>7</sup>/<sub>3</sub> ; x = 2'],
+        ['6. Table of sign',''] ,
+        ['7. Write down the solution', '(-∞ , <sup>5</sup>/<sub>3</sub>] U (2 , ∞) and (-∞ , 2) U [<sup>7</sup>/<sub>3</sub> , ∞)'],
+        ['8. Use number lines to merge the answers',''],
+        ['9. Write down the final solution','(-∞ , <sup>5</sup>/<sub>3</sub>] U [<sup>7</sup>/<sub>3</sub> , ∞)']
+    ];
+    var Index = 0;
+    var maxRows = 9; 
+
+    // Enable the button initially
+    document.getElementById('nextstep').disabled = false;
+
+    function addTableRow() {
+        var table = document.getElementById('contentTable').getElementsByTagName('tbody')[0];
+        var newRow = table.insertRow(table.rows.length);
+
+        // Display the content in two columns
+        newRow.insertCell(0).innerHTML = contentArray[Index][0];
+
+        // Add an image to the second column of a specific row (e.g., third row)
+        if (table.rows.length === 6) {
+            newRow.insertCell(1).innerHTML = '<img src="example.jpg" alt="Example Image">';
+        }else if (table.rows.length === 8) {
+            newRow.insertCell(1).innerHTML = '<img src="example.jpg" alt="Example Image">';
+        } else {
+            newRow.insertCell(1).innerHTML = contentArray[Index][1];
+        }
+
+        // Increment the index and reset if it exceeds the array length
+        Index = (Index + 1) % contentArray.length;
+
+        // Disable the button after the maximum number of rows is reached
+        if (table.rows.length >= maxRows) {
+            document.getElementById('nextstep').disabled = true;
+        }
+    }
+</script>
+<button onclick="window.location.href='index.html'">Home</button>
+</body>
+</html>
