@@ -18,11 +18,11 @@
         }
 
         #column1 {
-            width: 50%; 
+            width: 30%; 
         }
 
         #column2 {
-            width: 50%; 
+            width: 70%; 
         }
     </style>
 </head>
@@ -49,8 +49,8 @@
 
 <script>
     var contentArray = [
-        ['2. Zerorise RHS and simplify the inequality', '<sup>1</sup>/<sub>x - 2</sub> + 3 < 0 <br><br> or <br><br> <sup>1</sup>/<sub>x - 2</sub> - 3 ≥ 0'],
-        ['3. Factorise completely', '<sup>3x - 5</sup>/<sub>x - 2</sub> < 0 <br><br> or <br><br> <sup>7 - 3x</sup>/<sub>x - 2</sub> ≥ 0'],
+        ['2. Zerorise RHS and simplify the inequality', '<sup>1</sup>/<sub>x - 2</sub> + 3 < 0 <br><br> or <br><br> <sup>1</sup>/<sub>x - 2</sub> - 3 > 0'],
+        ['3. Factorise completely', '<sup>3x - 5</sup>/<sub>x - 2</sub> < 0 <br><br> or <br><br> <sup>7 - 3x</sup>/<sub>x - 2</sub> > 0'],
         ['4. Find all critical values', 'x = <sup>5</sup>/<sub>3</sub> ; x = 2 <br><br> or <br><br> x = <sup>7</sup>/<sub>3</sub> ; x = 2'],
         ['5. Table of sign',''] ,
         ['6. Write down the solution', '(<sup>5</sup>/<sub>3</sub> , 2) or (2 , <sup>7</sup>/<sub>3</sub>)'],
@@ -72,9 +72,9 @@
 
         // Add an image to the second column of a specific row (e.g., third row)
         if (table.rows.length === 5) {
-            newRow.insertCell(1).innerHTML = '<img src="example.jpg" alt="Example Image">';
+            newRow.insertCell(1).innerHTML = '<img src="image/table4.jpg" alt="img"><br><p>or</p><br><img src="image/table5.jpg" alt="img">';
         }else if (table.rows.length === 7) {
-            newRow.insertCell(1).innerHTML = '<img src="example.jpg" alt="Example Image">';
+            newRow.insertCell(1).innerHTML = '<img src="image/noline2.jpg" alt="img">';
         } else {
             newRow.insertCell(1).innerHTML = contentArray[Index][1];
         }
