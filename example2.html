@@ -18,11 +18,11 @@
         }
 
         #column1 {
-            width: 50%; 
+            width: 30%; 
         }
 
         #column2 {
-            width: 50%; 
+            width: 70%; 
         }
     </style>
 </head>
@@ -73,9 +73,9 @@
 
         // Add an image to the second column of a specific row (e.g., third row)
         if (table.rows.length === 6) {
-            newRow.insertCell(1).innerHTML = '<img src="example.jpg" alt="Example Image">';
+            newRow.insertCell(1).innerHTML = '<img src="image/table2.jpg" alt="img"><br><p>and</p><br><img src="image/table3.jpg" alt="img">';
         }else if (table.rows.length === 8) {
-            newRow.insertCell(1).innerHTML = '<img src="example.jpg" alt="Example Image">';
+            newRow.insertCell(1).innerHTML = '<img src="image/noline1.jpg" alt="img">';
         } else {
             newRow.insertCell(1).innerHTML = contentArray[Index][1];
         }
