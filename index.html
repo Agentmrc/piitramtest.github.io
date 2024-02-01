@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inequality</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,
+    300&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>INEQUALITIES</h1>
@@ -77,8 +81,11 @@
             <input type="radio" id="nonlinear" name="nomodulus" value="nonlinear" onclick="updateTable2()">
             <label for="nonlinear">Non-Linear</label>
 
-            <input type="radio" id="combine" name="nomodulus" value="combine" onclick="updateTable2()">
-            <label for="combine">Combination</label>
+            <input type="radio" id="combine1" name="nomodulus" value="combine1" onclick="updateTable2()">
+            <label for="combine1">Combination Type 1</label>
+
+            <input type="radio" id="combine2" name="nomodulus" value="combine2" onclick="updateTable2()">
+            <label for="combine2">Combination Type 2</label>
 
             <table>
                 <thead>
@@ -95,6 +102,9 @@
                     </tr>
                 </tbody> 
             </table>
+
+            <button onclick="redirect2()">Example</button>
+
         </div>
         
     <script src="script.js"></script>
