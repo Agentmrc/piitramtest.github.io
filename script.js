@@ -30,13 +30,13 @@ function updateTable() {
         cell1.innerHTML = '| <sup>1</sup>/<sub>x - 2</sub> | < 3';
         cell2.innerHTML = '| x | < a ↔ -a < x < a';
     } else if (sign === 'sign2') {
-        cell1.innerHTML = '| x - 3 | > 2x + 5';
+        cell1.innerHTML = '| <sup>1</sup>/<sub>x - 2</sub> | > 3';
         cell2.innerHTML = '| x | > a ↔ x < -a or  x > a';
     } else if (sign === 'sign3') {
         cell1.innerHTML = '| <sup>1</sup>/<sub>x - 2</sub> | ≤ 3';
         cell2.innerHTML = '| x | ≤ a ↔ -a ≤ x ≤ a';
     } else if (sign === 'sign4') {
-        cell1.innerHTML = '| x - 3 | ≥ 2x + 5';
+        cell1.innerHTML = '| <sup>1</sup>/<sub>x - 2</sub> | ≥ 3';
         cell2.innerHTML = '| x | ≥ a ↔ x ≤ -a or x ≥ a';
     }
 }
@@ -49,14 +49,17 @@ function updateTable2() {
     var cell2 = document.getElementById('tandf2');
 
     if (type === 'linear') {
-        cell1.innerHTML = 'x - 3 ≤ 2x + 5';
+        cell1.innerHTML = '<sup>3x</sup>/<sub>4</sub> ≥ <sup>x</sup>/<sub>4</sub> + 2';
         cell2.innerHTML = 'Solve directly';
     } else if (type === 'nonlinear') {
-        cell1.innerHTML = '| x - 3 | > 2x + 5';
-        cell2.innerHTML = '| x | > a ↔ x < -a or  x > a';
-    } else if (type === 'combine') {
-        cell1.innerHTML = '| <sup>1</sup>/<sub>x - 2</sub> | <= 3';
-        cell2.innerHTML = '| x | ≤ a ↔ -a ≤ x ≤ a';
+        cell1.innerHTML = '<sup>1</sup>/<sub>x + 2</sub> ≤ <sup>2</sup>/<sub>x - 3</sub>';
+        cell2.innerHTML = 'Solve directly';
+    } else if (type === 'combine1') {
+        cell1.innerHTML = '-2 ≤ <sup>3 - 5m</sup>/<sub>4</sub> ≤ <sup>1</sup>/<sub>3</sub>';
+        cell2.innerHTML = 'Solve directly';
+    } else if (type === 'combine2') {
+        cell1.innerHTML = 'x + 7 ≤ 2x + 5 < 7x + 3';
+        cell2.innerHTML = 'Solve directly';
     }
 }
 
@@ -72,6 +75,24 @@ function redirect(){
                 window.location.href = 'example4.html';
             } else if (directory === 'sign4'){
                 window.location.href = 'example5.html';
+            }
+        } else {
+            alert("Please select an option first.");
+        }  
+}
+
+function redirect2(){
+    var selectedOption = document.querySelector('input[name="nomodulus"]:checked');
+        if (selectedOption) {
+            var directory = selectedOption.value;
+            if (directory === 'linear'){
+                window.location.href = 'example6.html';
+            } else if (directory === 'nonlinear'){
+                window.location.href = 'example7.html';
+            } else if (directory === 'combine1'){
+                window.location.href = 'example8.html';
+            } else if (directory === 'combine2'){
+                window.location.href = 'example9.html';
             }
         } else {
             alert("Please select an option first.");
