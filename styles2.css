@@ -1,0 +1,53 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&family=Protest+Riot&family=Ubuntu&display=swap');
+
+
+h2{
+    text-align: center;
+    font-family: 'Protest Guerrilla', sans-serif;
+    font-size: 2.5vw; 
+    color:#14213d;
+}
+
+button{
+    font-size: 1.5vw;
+    color:white;
+    font-family: 'Protest Riot', sans-serif;
+    background-color: #48cae4;
+    padding:8px 14px;
+    cursor:crosshair;
+    border: 2px solid;
+    box-shadow: 2px 2px white, 2px 2px black;
+    transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+button:hover {
+    background-color: #00b4d8;
+    color:white;
+    box-shadow: 3px 3px white, 6px 6px black;
+    transform: translate(-2px, -2px);
+}
+
+table{
+    background-color: #edf6f9;
+    font-size: 1.5vw;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+th{
+    background-color: #bde0fe;
+}
+
+body{
+    background-image: url('image/bg1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+img{
+    width: 45vw;
+}
+
+#noline{
+    width:30vw;
+}

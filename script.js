@@ -12,6 +12,8 @@ function showOption() {
     // Display the appropriate radio options container based on the selected dropdown option
     if (dropdown.value === "option1") {
         dropdown1.style.display = "block";
+        dropdown1.style.marginLeft = "auto";
+        dropdown1.style.marginRight = "auto";
     } else if (dropdown.value === "option2") {
         radioContainer1.style.display = "block";
     } else if (dropdown.value === "option3") {
@@ -27,18 +29,20 @@ function updateTable() {
     var cell2 = document.getElementById('tandf1');
 
     if (sign === 'sign1') {
-        cell1.innerHTML = '| <sup>1</sup>/<sub>x - 2</sub> | < 3';
-        cell2.innerHTML = '| x | < a ↔ -a < x < a';
+        cell1.innerHTML = '\\(|\\frac{1}{x - 2}| < 3\\)';
+        cell2.innerHTML = '\\(| x | < a ↔ -a < x < a\\)';
     } else if (sign === 'sign2') {
-        cell1.innerHTML = '| <sup>1</sup>/<sub>x - 2</sub> | > 3';
-        cell2.innerHTML = '| x | > a ↔ x < -a or  x > a';
+        cell1.innerHTML = '\\(|\\frac{1}{x - 2}| > 3\\)';
+        cell2.innerHTML = '\\(| x | > a ↔ x < -a\\) or \\(x > a\\)';
     } else if (sign === 'sign3') {
-        cell1.innerHTML = '| <sup>1</sup>/<sub>x - 2</sub> | ≤ 3';
-        cell2.innerHTML = '| x | ≤ a ↔ -a ≤ x ≤ a';
+        cell1.innerHTML = '\\(|\\frac{1}{x - 2}| ≤ 3\\)';
+        cell2.innerHTML = '\\(| x | ≤ a ↔ -a ≤ x ≤ a\\)';
     } else if (sign === 'sign4') {
-        cell1.innerHTML = '| <sup>1</sup>/<sub>x - 2</sub> | ≥ 3';
-        cell2.innerHTML = '| x | ≥ a ↔ x ≤ -a or x ≥ a';
+        cell1.innerHTML = '\\(|\\frac{1}{x - 2}| ≥ 3\\)';
+        cell2.innerHTML = '\\(| x | ≥ a ↔ x ≤ -a\\) or \\(x ≥ a\\)';
     }
+    MathJax.typeset();
+    
 }
 
 function updateTable2() {
@@ -49,18 +53,19 @@ function updateTable2() {
     var cell2 = document.getElementById('tandf2');
 
     if (type === 'linear') {
-        cell1.innerHTML = '<sup>3x</sup>/<sub>4</sub> ≥ <sup>x</sup>/<sub>4</sub> + 2';
+        cell1.innerHTML = '\\(\\frac{3x}{4} ≥ \\frac{x}{4} + 2\\)';
         cell2.innerHTML = 'Solve directly';
     } else if (type === 'nonlinear') {
-        cell1.innerHTML = '<sup>1</sup>/<sub>x + 2</sub> ≤ <sup>2</sup>/<sub>x - 3</sub>';
+        cell1.innerHTML = '\\(\\frac{1}{x + 2} ≤ \\frac{2}{x - 3}\\)';
         cell2.innerHTML = 'Solve directly';
     } else if (type === 'combine1') {
-        cell1.innerHTML = '-2 ≤ <sup>3 - 5m</sup>/<sub>4</sub> ≤ <sup>1</sup>/<sub>3</sub>';
+        cell1.innerHTML = '\\(-2 ≤ \\frac{3 - 5m}{4} ≤ \\frac{1}{3}\\)';
         cell2.innerHTML = 'Solve directly';
     } else if (type === 'combine2') {
-        cell1.innerHTML = 'x + 7 ≤ 2x + 5 < 7x + 3';
+        cell1.innerHTML = '\\(x + 7 ≤ 2x + 5 < 7x + 3\\)';
         cell2.innerHTML = 'Solve directly';
     }
+    MathJax.typeset();
 }
 
 function redirect(){

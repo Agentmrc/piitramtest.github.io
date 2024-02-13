@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Content Example</title>
+    <link rel="stylesheet" href="styles2.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+        });
+    </script>
     <style>
         table {
             border-collapse: collapse;
@@ -28,52 +38,54 @@
 </head>
 <body>
 
-<h2>Solve Linear Inequality</h2>
-<button id="nextstep" onclick="addTableRow()">Next Step</button>
+<h2>SOLVE LINEAR INEQUALITY</h2>
 
-<table id="contentTable">
+<button onclick="window.location.href='index.html'">Home<ion-icon name="home-outline"></ion-icon></button>
+<br><br>
+<table id="solution">
     <thead>
         <tr>
             <th>Question</th>
-            <th><sup>3x</sup>/<sub>4</sub> ≥ <sup>x</sup>/<sub>4</sub>+2</th>
+            <th>\( \frac{3x}{4} ≥  \frac{x}{4} + 2\)</th>
         </tr>
     </thead>
     <tbody>
-        <!-- Initial row -->
         <tr>
             <td id="column1">1. Rearrange the inequality. Constant at the right hand side.</td>
-            <td id="column2"><sup>3x</sup>/<sub>4</sub> - <sup>x</sup>/<sub>4</sub> ≥ 2</td>
+            <td id="column2">\( \frac{3x}{4} - \frac{x}{4} ≥ 2\)</td>
+        </tr>
+        <tr style="display: none;">
+            <td id="column1">2. Solve and simplify the expression</td>
+            <td id="column2">\( \frac{2x}{4} ≥ 2\)</td>
+        </tr>
+        <tr style="display: none;">
+            <td id="column1">3. Get the answer</td>
+            <td id="column2">\( x ≥ 4\)</td>
         </tr>
     </tbody>
 </table>
 
-<script>
-    var contentArray = [
-        ['2. Solve and simplify the expression', '<sup>2x</sup>/<sub>4</sub> ≥ 2'],
-        ['3. Get the answer ', 'x ≥ 4'],
-    ];
-    var Index = 0;
-    var maxRows = 3; 
+<br>
+<button id="nextstep" onclick="displayNextRow()">Next Step<ion-icon name="arrow-forward-circle-outline"></ion-icon></button>
 
-    // Enable the button initially
-    document.getElementById('nextstep').disabled = false;
 
-    function addTableRow() {
-        var table = document.getElementById('contentTable').getElementsByTagName('tbody')[0];
-        var newRow = table.insertRow(table.rows.length);
+  <script>
+    let currentRow = 2;
 
-        newRow.insertCell(0).innerHTML = contentArray[Index][0];
-        newRow.insertCell(1).innerHTML = contentArray[Index][1];
+    function displayNextRow() {
+      const table = document.getElementById('solution');
+      const rows = table.getElementsByTagName('tr');
 
-        // Increment the index and reset if it exceeds the array length
-        Index = (Index + 1) % contentArray.length;
+      if (currentRow < rows.length) {
+        rows[currentRow].style.display = 'table-row';
+        currentRow++;
+      }
 
-        // Disable the button after the maximum number of rows is reached
-        if (table.rows.length >= maxRows) {
-            document.getElementById('nextstep').disabled = true;
-        }
+      if (currentRow === rows.length) {
+        document.getElementById('showButton').disabled = true;
+      }
     }
-</script>
-<button onclick="window.location.href='index.html'">Home</button>
+  </script>
+
 </body>
 </html>

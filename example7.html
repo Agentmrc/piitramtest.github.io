@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Content Example</title>
+    <link rel="stylesheet" href="styles2.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+        });
+    </script>
     <style>
         table {
             border-collapse: collapse;
@@ -28,62 +38,68 @@
 </head>
 <body>
 
-<h2>Solve Non-Linear Inequality</h2>
-<button id="nextstep" onclick="addTableRow()">Next Step</button>
+<h2>SOLVE NON-LINEAR INEQUALITY</h2>
 
-<table id="contentTable">
+<button onclick="window.location.href='index.html'">Home<ion-icon name="home-outline"></ion-icon></button>
+<br><br>
+<table id="solution">
     <thead>
         <tr>
             <th>Question</th>
-            <th><sup>1</sup>/<sub>x + 2</sub> ≤ <sup>2</sup>/<sub>x - 3</sub></th>
+            <th>\( \frac{1}{x + 2} ≤ \frac{2}{x - 3}\)</th>
         </tr>
     </thead>
     <tbody>
-        <!-- Initial row -->
+        <!-- First row visible -->
         <tr>
             <td id="column1">1. Rearrange the inequality so that the right-hand side is zero.</td>
-            <td id="column2"><sup>1</sup>/<sub>x + 2</sub> - <sup>2</sup>/<sub>x - 3 < 0</sub></td>
+            <td id="column2">\( \frac{1}{x + 2} - \frac{2}{x - 3} ≤ 0\)</td>
+        </tr>
+        <tr style="display: none;">
+            <td id="column1">2. Find the common denominator</td>
+            <td id="column2">\( \frac{x - 3 - 2}{(x + 2)(x - 3)} ≤ 0\)</td>
+        </tr>
+        <!-- Add more rows as needed -->
+        <tr style="display: none;">
+            <td id="column1">3. Get inequality with linear factors.</td>
+            <td id="column2">\( \frac{x - 5}{(x + 2)(x - 3)} ≤ 0\)</td>
+        </tr>
+        <tr style="display: none;">
+            <td id="column1">4. Find all critical values</td>
+            <td id="column2">\( x = 5 ; x = 2 ; x = 3\)</td>
+        </tr>
+        <tr style="display: none;">
+            <td id="column1">5. Table of Sign</td>
+            <td id="column2"><img src="image/table6.jpg" alt="img"></td>
+        </tr>
+        <tr style="display: none;">
+            <td id="column1">6. Write down the solution</td>
+            <td id="column2">\((-∞ , -2)\) U \((3 , 5]\)</td>
         </tr>
     </tbody>
 </table>
 
-<script>
-    var contentArray = [
-        ['2. Find the common denominator','<sup>x - 3 - 2</sup>/<sub>(x + 2)(x - 3)</sub> ≤ 0'],
-        ['3. Get inequality with linear factors.', '<sup>x - 5</sup>/<sub>(x + 2)(x - 3)</sub> ≤ 0'],
-        ['4. Find all critical values', 'x = 5 ; x = -2 ; x = 3'],
-        ['5. Table of sign',''] ,
-        ['6. Write down the solution', '(-∞ , -2) U (3 , 5]'],
-    ];
-    var Index = 0;
-    var maxRows = 6; 
+<br>
+<button id="nextstep" onclick="displayNextRow()">Next Step<ion-icon name="arrow-forward-circle-outline"></ion-icon></button>
 
-    // Enable the button initially
-    document.getElementById('nextstep').disabled = false;
 
-    function addTableRow() {
-        var table = document.getElementById('contentTable').getElementsByTagName('tbody')[0];
-        var newRow = table.insertRow(table.rows.length);
+  <script>
+    let currentRow = 2;
 
-        // Display the content in two columns
-        newRow.insertCell(0).innerHTML = contentArray[Index][0];
+    function displayNextRow() {
+      const table = document.getElementById('solution');
+      const rows = table.getElementsByTagName('tr');
 
-        // Add an image to the second column of a specific row (e.g., third row)
-        if (table.rows.length === 5) {
-            newRow.insertCell(1).innerHTML = '<img src="image/table6.jpg" alt="img">';
-        } else {
-            newRow.insertCell(1).innerHTML = contentArray[Index][1];
-        }
+      if (currentRow < rows.length) {
+        rows[currentRow].style.display = 'table-row';
+        currentRow++;
+      }
 
-        // Increment the index and reset if it exceeds the array length
-        Index = (Index + 1) % contentArray.length;
-
-        // Disable the button after the maximum number of rows is reached
-        if (table.rows.length >= maxRows) {
-            document.getElementById('nextstep').disabled = true;
-        }
+      if (currentRow === rows.length) {
+        document.getElementById('showButton').disabled = true;
+      }
     }
-</script>
-<button onclick="window.location.href='index.html'">Home</button>
+  </script>
+
 </body>
 </html>

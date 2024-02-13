@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Content Example</title>
+    <link rel="stylesheet" href="styles2.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+        });
+    </script>
     <style>
         table {
             border-collapse: collapse;
@@ -18,73 +28,83 @@
         }
 
         #column1 {
-            width: 50%; 
+            width: 30%; 
         }
 
         #column2 {
-            width: 50%; 
+            width: 70%; 
         }
     </style>
 </head>
 <body>
 
-<h2>Solve Both Modulus Inequality</h2>
-<button id="nextstep" onclick="addTableRow()">Next Step</button>
+<h2>SOLVE BOTH MODULUS INEQUALITY</h2>
 
-<table id="contentTable">
+<button onclick="window.location.href='index.html'">Home<ion-icon name="home-outline"></ion-icon></button>
+<br><br>
+<table id="solution">
     <thead>
         <tr>
             <th>Question</th>
-            <th>| x - 3 | > 2x + 5</th>
+            <th>\(| x - 3 | > 2x + 5\)</th>
         </tr>
     </thead>
     <tbody>
-        <!-- Initial row -->
+        <!-- First row visible -->
         <tr>
             <td id="column1">1. Squaring both sides to eliminate modulus</td>
-            <td id="column2">(x - 3)<sup>2</sup> > (2x + 5)<sup>2</sup></td>
+            <td id="column2">\((x - 3)^2 > (2x + 5)^2\)</td>
+        </tr>
+
+        <tr style="display: none;">
+            <td id="column1">2. Expand all terms</td>
+            <td id="column2">\( x^2 - 6x + 9 > 4x^2 + 20x + 25\)</td>
+        </tr>
+        <!-- Add more rows as needed -->
+        <tr style="display: none;">
+            <td id="column1">3. Zerorise RHS and simplify the inequality</td>
+            <td id="column2">\( 3x^2 + 26x + 16 > 0\)</td>
+        </tr>
+        <tr style="display: none;">
+          <td id="column1">4. Factorise completely</td>
+          <td id="column2">\( (3x + 2)(x + 8) > 0\)</td>
+        </tr>
+        <tr style="display: none;">
+          <td id="column1">5. Find all critical values</td>
+          <td id="column2">\( x = -\frac{2}{3}\) <br><br> or <br><br> \(x = 2\)</td>
+        </tr>
+        <tr style="display: none;">
+          <td id="column1">6. Table of Sign</td>
+          <td id="column2"><img src="image/table1.jpg" alt="img"></td>
+        </tr>
+        <tr style="display: none;">
+          <td id="column1">7. Write down the solution</td>
+          <td id="column2">\( (-∞ , -8 )\) U \((-\frac{2}{3} , ∞)\)</td>
         </tr>
     </tbody>
 </table>
 
-<script>
-    var contentArray = [
-        ['2. Expand all terms', 'x<sup>2</sup> - 6x + 9 < 4x<sup>2</sup> + 20x + 25'],
-        ['3. Zerorise RHS and simplify the inequality', '3x<sup>2</sup> + 26x + 16 > 0'],
-        ['4. Factorise completely', '(3x + 2)(x + 8) > 0'],
-        ['5. Find all critical values', 'x = -<sup>2</sup>/<sub>3</sub> or x = -8'],
-        ['6. Table of sign',''] ,
-        ['7. Write down the solution', '(-∞ , -8) U (-<sup>2</sup>/<sub>3</sub> , ∞)']
-    ];
-    var Index = 0;
-    var maxRows = 7; 
+<br>
+<button id="nextstep" onclick="displayNextRow()">Next Step<ion-icon name="arrow-forward-circle-outline"></ion-icon></button>
 
-    // Enable the button initially
-    document.getElementById('nextstep').disabled = false;
 
-    function addTableRow() {
-        var table = document.getElementById('contentTable').getElementsByTagName('tbody')[0];
-        var newRow = table.insertRow(table.rows.length);
+  <script>
+    let currentRow = 2;
 
-        // Display the content in two columns
-        newRow.insertCell(0).innerHTML = contentArray[Index][0];
+    function displayNextRow() {
+      const table = document.getElementById('solution');
+      const rows = table.getElementsByTagName('tr');
 
-        // Add an image to the second column of a specific row (e.g., third row)
-        if (table.rows.length === 6) {
-            newRow.insertCell(1).innerHTML = '<img src="image/table1.jpg" alt="Example Image">';
-        } else {
-            newRow.insertCell(1).innerHTML = contentArray[Index][1];
-        }
+      if (currentRow < rows.length) {
+        rows[currentRow].style.display = 'table-row';
+        currentRow++;
+      }
 
-        // Increment the index and reset if it exceeds the array length
-        Index = (Index + 1) % contentArray.length;
-
-        // Disable the button after the maximum number of rows is reached
-        if (table.rows.length >= maxRows) {
-            document.getElementById('nextstep').disabled = true;
-        }
+      if (currentRow === rows.length) {
+        document.getElementById('showButton').disabled = true;
+      }
     }
-</script>
-<button onclick="window.location.href='index.html'">Home</button>
+  </script>
+
 </body>
 </html>

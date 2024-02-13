@@ -5,57 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inequality</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,
-    300&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+        });
+    </script>
 </head>
 <body>
-    <h1>INEQUALITIES</h1>
-    <label for="dropdown">Select a type of inequality:</label>
-        <select id="dropdown" onchange="showOption()">
-            <option value="option0">Select</option>
-            <option value="option1">Both sides with modulus</option>
-            <option value="option2">One side with modulus</option>
-            <option value="option3">Without modulus</option>
-        </select>
-
+    <h1>INEQUALITIES <> </h1>
+    <h2 class="instruct">Select a type of inequality:<h2>
+    <select id="dropdown" onchange="showOption()" class="dropdown">
+        <option value="option0">Select</option>
+        <option value="option1">Both sides with modulus</option>
+        <option value="option2">One side with modulus</option>
+        <option value="option3">Without modulus</option>
+    </select>
+    
         <div id="dropdown1" style="display:none;">
             <table>
                 <thead>
-                    <tr><h2>SOLUTION</h2></tr>
+                    <tr><h2 class="solution">SOLUTION<ion-icon name="caret-down"></ion-icon></h2></tr>
                 </thead>
                 <tbody>   
                     <tr>
                         <th>Example</th>
-                        <td>| x - 3 | < | 2x + 5 | </td>
+                        <td>\(| x - 3 | < | 2x + 5 |\)</td>
                     </tr>
                     <tr>
                         <th>Technique/Formula</th>
                         <td>Squaring Both Sides</td>
                     </tr>
                 </tbody> 
-            </table>
-            <button onclick="window.location.href='example.html'">Example</button>
+            </table><br>
+            <button onclick="window.location.href='example.html'">Example<ion-icon name="arrow-forward-circle"></ion-icon></button>
         </div>
 
         <div id="radiooption2" style="display:none;">
-            <label>Choose an inequality sign:</label>
+            <h2 class="instruct">Choose an inequality sign:</h2>
             <input type="radio" id="sign1" name="sign" value="sign1" onclick="updateTable()">
-            <label for="sign1"> < </label>
+            <label for="sign1" class="radio-label"> < </label><br>
         
             <input type="radio" id="sign2" name="sign" value="sign2" onclick="updateTable()">
-            <label for="sign2"> > </label>
+            <label for="sign2" class="radio-label"> > </label><br>
 
             <input type="radio" id="sign3" name="sign" value="sign3" onclick="updateTable()">
-            <label for="sign3"> ≤ </label>
+            <label for="sign3" class="radio-label"> ≤ </label><br>
 
             <input type="radio" id="sign4" name="sign" value="sign4" onclick="updateTable()">
-            <label for="sign4"> ≥ </label>
+            <label for="sign4" class="radio-label"> ≥ </label>
 
             <table>
                 <thead>
-                    <tr><h2>SOLUTION</h2></tr>
+                    <tr><h2 class="solution">SOLUTION<ion-icon name="caret-down"></ion-icon></h2></tr>
                 </thead>
                 <tbody>   
                     <tr>
@@ -67,29 +72,28 @@
                         <td id="tandf1"></td>
                     </tr>
                 </tbody> 
-            </table>
-
-            <button onclick="redirect()">Example</button>
+            </table><br>
+            <button onclick="redirect()">Example<ion-icon name="arrow-forward-circle"></ion-icon></button>
 
         </div>  
 
         <div id="radiooption3" style="display:none;">
-            <label>Choose the type of inequality:</label>
+            <h2 class="instruct">Choose the type of inequality(no modulus):</h2>
             <input type="radio" id="linear" name="nomodulus" value="linear" onclick="updateTable2()">
-            <label for="linear">Linear</label>
+            <label for="linear" class="radio-label">Linear</label><br>
         
             <input type="radio" id="nonlinear" name="nomodulus" value="nonlinear" onclick="updateTable2()">
-            <label for="nonlinear">Non-Linear</label>
+            <label for="nonlinear" class="radio-label">Non-Linear</label><br>
 
             <input type="radio" id="combine1" name="nomodulus" value="combine1" onclick="updateTable2()">
-            <label for="combine1">Combination Type 1</label>
+            <label for="combine1" class="radio-label">Combination Type 1</label><br>
 
             <input type="radio" id="combine2" name="nomodulus" value="combine2" onclick="updateTable2()">
-            <label for="combine2">Combination Type 2</label>
+            <label for="combine2" class="radio-label">Combination Type 2</label>
 
             <table>
                 <thead>
-                    <tr><h2>SOLUTION</h2></tr>
+                    <tr><h2 class="solution">SOLUTION<ion-icon name="caret-down"></ion-icon></h2></tr>
                 </thead>
                 <tbody>   
                     <tr>
@@ -101,9 +105,8 @@
                         <td id="tandf2"></td>
                     </tr>
                 </tbody> 
-            </table>
-
-            <button onclick="redirect2()">Example</button>
+            </table><br>
+            <button onclick="redirect2()">Example<ion-icon name="arrow-forward-circle"></ion-icon></button>
 
         </div>
         

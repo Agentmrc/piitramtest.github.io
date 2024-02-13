@@ -1,14 +1,133 @@
-body {
-  font-family: 'Ubuntu', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&family=Protest+Strike&family=Protest+Riot&family=Ubuntu&display=swap');
+
+h1{
+  text-align: center;
+  font-family: 'Protest Guerrilla', sans-serif;
+  font-size: 3.5vw; 
+  color:#14213d;
+}
+
+.instruct{
+  text-align: center;
+  font-family: 'Protest Riot', sans-serif;
+  font-size: 2.5vw;
+}
+
+body{
+  align-items: center;
+  background-image: url('image/bg2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h2{
+  text-align: center;
+  font-family: 'Protest Guerrilla', sans-serif;
+  font-size: 2.5vw;
+}
+
+.dropdown {
+  font-family: 'Protest Strike', sans-serif;
+  padding: 8px;
+  font-size: 1.5vw;
+  border: 3px solid #3498db; 
+  border-radius: 5px;
+  background-color: #ecf0f1; 
+  color: #333; 
+}
+
+.dropdown option {
+  font-family: 'Protest Strike', sans-serif;
+  background-color: #ffffff; 
+  color: #333; 
+}
+
+table {
+  align-items: center;
+  width: 80%;
+  border: 2px solid black;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 2px solid black;
+}
+
+th{
+  font-family: 'Protest Strike', sans-serif;
+  font-style: oblique;
+  background-color: #bde0fe;
+  font-size: 2vw;
+}
+
+td{
+  font-family: 'Protest Strike', sans-serif;
+  font-style: normal;
+  background-color: #edf6f9;
+  font-size: 2vw;
+}
+
+label{
+  text-align: center;
+  font-family: 'Protest Strike', sans-serif;
+  font-size: 2.0vw;
+  cursor: pointer;
 }
 
 button{
-  font-family: 'Ubuntu', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-  font-size: 16px;
+  font-size: 1.5vw;
+  color:white;
+  font-family: 'Protest Riot', sans-serif;
+  background-color: #48cae4;
+  padding:8px 14px;
+  border: 2px solid;
+  border-radius: 15%;
+  box-shadow: 2px 2px white, 2px 2px black;
+  transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+button:hover {
+  background-color: #00b4d8;
+  color:white;
+  border-radius: 15%;
+  box-shadow: 3px 3px white, 6px 6px black;
+  transform: translate(-2px, -2px);
+}
+
+.solution{
+  color: #14213d;
+}
+
+input[type="radio"]{
+  display: none;
+}
+
+.radio-label {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 2vw;
+}
+
+.radio-label:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid black; 
+  background-color: white; 
+  box-sizing: border-box;
+}
+
+/* Style the custom radio button when checked */
+input[type="radio"]:checked + .radio-label:before {
+  background-color: #2196F3; 
+  border-color: black; 
 }

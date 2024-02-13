@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Content Example</title>
+    <link rel="stylesheet" href="styles2.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+        });
+    </script>
     <style>
         table {
             border-collapse: collapse;
@@ -28,61 +38,58 @@
 </head>
 <body>
 
-<h2>Solve Combined Inequality (Type 2)</h2>
-<button id="nextstep" onclick="addTableRow()">Next Step</button>
+<h2>SOLVE COMBINED INEQUALITY (TYPE 2)</h2>
 
-<table id="contentTable">
+<button onclick="window.location.href='index.html'">Home<ion-icon name="home-outline"></ion-icon></button>
+<br><br>
+<table id="solution">
     <thead>
         <tr>
             <th>Question</th>
-            <th>x + 7 ≤ 2x + 5 < 7x + 3</th>
+            <th>\(x + 7 ≤ 2x + 5 < 7x + 3\)</th>
         </tr>
     </thead>
     <tbody>
-        <!-- Initial row -->
         <tr>
-            <td id="column1">1. Separate the inequality with the word “and” 
-                in between the two inequalities</td>
-            <td id="column2">x + 7 ≤ 2x + 5 <br><br> and <br><br> 2x + 5 < 7x + 3</td>
+            <td id="column1">1. Separate the inequality with the word “and” in between the two inequalities</td>
+            <td id="column2">\( x + 7 ≤ 2x + 5 \) <br><br> and <br><br> \( 2x + 5 < 7x + 3 \)</td>
+        </tr>
+        <tr style="display: none;">
+            <td id="column1">2. Solve and rearrange to get x at the left hand side</td>
+            <td id="column2">\( x ≥ 2 \) <br><br> and <br><br> \( x > \frac{2}{5} \)</td>
+        </tr>
+        <tr style="display: none;">
+            <td id="column1">3. Use number line to get the intersection region between the two inequalities</td>
+            <td id="column2"><img id="noline" src="image/noline5.jpg" alt="img"></td>
+        </tr>
+        <tr style="display: none;">
+            <td id="column1">4. Get the answer in solution set or interval form</td>
+            <td id="column2">∴ { \(x: x ≥ 2 \) }</td>
         </tr>
     </tbody>
 </table>
 
-<script>
-    var contentArray = [
-        ['2. Solve and rearrange to get x at the left hand side','x ≥ 2 <br><br> and <br><br> x > <sup>2</sup>/<sub>5</sub>'],
-        ['3. Use number line to get the intersection region between the two inequalities', ''],
-        ['4. Get the answer in solution set or interval form.', '∴ {x: x ≥ 2}'],
-    ];
-    var Index = 0;
-    var maxRows = 4; 
+<br>
+<button id="nextstep" onclick="displayNextRow()">Next Step<ion-icon name="arrow-forward-circle-outline"></ion-icon></button>
 
-    // Enable the button initially
-    document.getElementById('nextstep').disabled = false;
 
-    function addTableRow() {
-        var table = document.getElementById('contentTable').getElementsByTagName('tbody')[0];
-        var newRow = table.insertRow(table.rows.length);
+  <script>
+    let currentRow = 2;
 
-        // Display the content in two columns
-        newRow.insertCell(0).innerHTML = contentArray[Index][0];
+    function displayNextRow() {
+      const table = document.getElementById('solution');
+      const rows = table.getElementsByTagName('tr');
 
-        // Add an image to the second column of a specific row (e.g., third row)
-        if (table.rows.length === 3) {
-            newRow.insertCell(1).innerHTML = '<img src="image/noline5.jpg" alt="img">';
-        } else {
-            newRow.insertCell(1).innerHTML = contentArray[Index][1];
-        }
+      if (currentRow < rows.length) {
+        rows[currentRow].style.display = 'table-row';
+        currentRow++;
+      }
 
-        // Increment the index and reset if it exceeds the array length
-        Index = (Index + 1) % contentArray.length;
-
-        // Disable the button after the maximum number of rows is reached
-        if (table.rows.length >= maxRows) {
-            document.getElementById('nextstep').disabled = true;
-        }
+      if (currentRow === rows.length) {
+        document.getElementById('showButton').disabled = true;
+      }
     }
-</script>
-<button onclick="window.location.href='index.html'">Home</button>
+  </script>
+
 </body>
 </html>
