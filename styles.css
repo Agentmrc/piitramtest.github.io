@@ -121,7 +121,7 @@ input[type="radio"]{
   width: 1vw;
   height: 1vw;
   border-radius: 50%;
-  border: 3px solid black; 
+  border: 0.2vw solid black; 
   background-color: white; 
   box-sizing: border-box;
 }
