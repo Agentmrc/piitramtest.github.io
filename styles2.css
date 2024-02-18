@@ -28,6 +28,11 @@ button:hover {
     transform: translate(-2px, -2px);
 }
 
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 table{
     background-color: #edf6f9;
     font-size: 1.5vw;
@@ -41,7 +46,7 @@ th{
 body{
     background-image: url('image/bg1.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
 }
 
 img{
@@ -50,4 +55,9 @@ img{
 
 #noline{
     width:30vw;
+}
+
+.logo{
+    width:5vw;
+    height:5vw;
 }
