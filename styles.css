@@ -18,6 +18,8 @@ body{
   background-image: url('image/bg2.jpg');
   background-size: cover;
   background-repeat: repeat;
+  margin:0 auto;
+  margin-bottom: 0;
 }
 
 h2{
@@ -126,7 +128,6 @@ input[type="radio"]{
   box-sizing: border-box;
 }
 
-/* Style the custom radio button when checked */
 input[type="radio"]:checked + .radio-label:before {
   background-color: #2196F3; 
   border-color: black; 
@@ -135,4 +136,20 @@ input[type="radio"]:checked + .radio-label:before {
 .logo{
   width:5vw;
   height:5vw;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position:absolute;
+  bottom: 0 auto;
+  width: 100%;
+}
+
+footer p {
+  font-size: 1vw;
+  color: white;
+  font-family:'Arial', sans-serif;
 }
