@@ -8,9 +8,24 @@ body {
     background-repeat: repeat;
 }
 
+.instruct{
+    text-align: center;
+    font-family: 'Protest Riot', sans-serif;
+    font-size: 2.5vw;
+}
+
 h1{
     font-family: 'Protest Guerrilla', sans-serif;
-    font-size: 5vw;
+    font-size: 4vw;
+}
+
+h3{
+    font-size: 2.25vw;
+}
+
+.logo{
+    width:5vw;
+    height:5vw;
 }
 
 .quiz-container {
@@ -18,11 +33,11 @@ h1{
 }
 
 .question {
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 15%;
+    margin-right: 15%;
     margin-bottom: 2vw;
     margin-top: 1vw;
-    background-color: white;
+    background-color: #fdf8e1;
     padding: 1vw;
     border-radius: 2vw;
     border: 0.25vw solid black;
@@ -46,8 +61,8 @@ input[type="radio"]{
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: 1vw;
-    height: 1vw;
+    width: 1.5vw;
+    height: 1.5vw;
     border-radius: 50%;
     border: 0.2vw solid black; 
     background-color: white; 
@@ -55,7 +70,7 @@ input[type="radio"]{
   }
   
   input[type="radio"]:checked + .radio-label:before {
-    background-color: #2196F3; 
+    background-color: #fca311; 
     border-color: black; 
   }  
 
@@ -86,7 +101,7 @@ button:hover {
     font-size: 1.5vw;
     color:#344e41;
     font-family: 'Protest Riot', sans-serif;
-    background-color: #a7c957;
+    background-color: #f9dc5c;
     padding:0.8vw 0.5vw;
     cursor:crosshair;
     border: 0.2vw solid;
@@ -96,8 +111,8 @@ button:hover {
 }
 
 .submit:hover {
-    background-color: #6a994e;
-    color:white;
+    background-color: #fae588;
+    color:#344e41;
     box-shadow: 0.2vw 0.2vw white, 0.4vw 0.4vw black;
     transform: translate(-2px, -2px);
 }
