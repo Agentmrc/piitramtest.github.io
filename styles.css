@@ -18,15 +18,15 @@ h1{
 .button-container button {
   display: inline-block;
   margin: 1vw; 
-  border-radius: 0%;
   background-color: #2a9d8f;
+  border-radius: 2vw;
   box-shadow: 0.2vw 0.2vw white, 0.2vw 0.2vw black;
 }
 
 .button-container button:hover {
-  background-color: #94d2bd;
+  background-color: #57cc99;
   color:white;
-  border-radius: 0%;
+  border-radius: 2vw;
   box-shadow: 0.2vw 0.2vw white, 0.4vw 0.4vw black;
   transform: translate(-2px, -2px);
 }
@@ -40,9 +40,10 @@ h1{
 body{
   text-align: center;
   align-items: center;
-  background-image: url('image/bg2.jpg');
+  background-image: url('image/bg3.png');
   background-size: cover;
   background-repeat: repeat;
+  background-attachment: fixed;
   margin:0;
   padding:0;
   width:auto;
@@ -191,4 +192,8 @@ input[type="radio"]:checked + .radio-label:before {
 
 .emptyspace{
   flex: 1;
+}
+
+.flowchart2{
+  border: 2px solid black; 
 }

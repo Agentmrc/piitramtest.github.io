@@ -70,9 +70,10 @@ th{
 
 body{
     align-items: center;
-    background-image: url('image/bg1.jpg');
+    background-image: url('image/bg3.png');
     background-size: cover;
     background-repeat: repeat;
+    background-attachment: fixed;
     min-height: 100vh;
     margin:0;
     padding:0;

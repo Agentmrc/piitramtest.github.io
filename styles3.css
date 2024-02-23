@@ -3,9 +3,10 @@
 body {
     text-align: center;
     align-items: center;
-    background-image: url('image/bg1.jpg');
+    background-image: url('image/bg3.png');
     background-size: cover;
     background-repeat: repeat;
+    background-attachment: fixed;
 }
 
 .instruct{
@@ -33,6 +34,7 @@ h3{
 }
 
 .question {
+    color:#2b2d42;
     margin-left: 15%;
     margin-right: 15%;
     margin-bottom: 2vw;
@@ -48,6 +50,7 @@ input[type="radio"]{
 }
 
 .radio-label {
+    color: black;
     display: inline-block;
     position: relative;
     padding-left: 30px;
@@ -115,4 +118,8 @@ button:hover {
     color:#344e41;
     box-shadow: 0.2vw 0.2vw white, 0.4vw 0.4vw black;
     transform: translate(-2px, -2px);
+}
+
+.incorrect-question {
+    background-color: #ffb3c6; 
 }
