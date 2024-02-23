@@ -196,4 +196,6 @@ input[type="radio"]:checked + .radio-label:before {
 
 .flowchart2{
   border: 2px solid black; 
+  max-width: 90vw;
+  height:auto;
 }
